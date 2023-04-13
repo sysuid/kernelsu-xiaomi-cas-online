@@ -24,7 +24,7 @@ jobs:
   
         cd source
 
-        wget https://raw.githubusercontent.com/CoolestEnoch/xiaomi-10-ultra-kernel/main/libdebuginfod.so.1 /usr/lib/
+        sudo wget https://raw.githubusercontent.com/CoolestEnoch/xiaomi-10-ultra-kernel/main/libdebuginfod.so.1 -O /usr/lib/libdebuginfod.so.1
 
         sudo chmod 777 /usr/lib/libdebuginfod.so.1
       
