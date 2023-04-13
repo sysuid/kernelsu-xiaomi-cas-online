@@ -29,9 +29,9 @@ jobs:
         sudo chmod 777 /usr/lib/libdebuginfod.so.1
       
         echo "[+] Append kernel params to kprobes"
-        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
-        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
-        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/cas_defconfig
+        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/cas_defconfig
+        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/cas_defconfig
+        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/cas_defconfig
 
         git clone https://github.com/tiann/KernelSU
         cd KernelSU
