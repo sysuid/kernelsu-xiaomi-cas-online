@@ -20,7 +20,7 @@ jobs:
         
         sudo apt install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip bc wget     
 
-        git clone -b android13-stable https://github.com/UtsavBalar1231/kernel_xiaomi_sm8250.git source
+        git clone https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas.git source
   
         cd source
 
@@ -29,7 +29,7 @@ jobs:
         sudo chmod 777 /usr/lib/libdebuginfod.so.1
       
         echo "[+] Append kernel params to kprobes"
-        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/cas_defconfig
+        # echo "CONFIG_KPROBES=y" >> arch/arm64/configs/cas_defconfig
         echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/cas_defconfig
         echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/cas_defconfig
 
@@ -60,7 +60,7 @@ jobs:
         export CROSS_COMPILE_ARM32=$(pwd)/gcc/gcc-arm-gcc-master/bin/arm-eabi-
         
         cd source
-        make cas_defconfig
+        make cas_defconfig o=out
         make -j2
         
 
@@ -68,4 +68,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: /home/runner/work/kernelsu-xiaomi-cas-online/kernelsu-xiaomi-cas-online/source/arch/arm64/boot/Image
+        path: /home/runner/work/kernelsu-xiaomi-cas-online/kernelsu-xiaomi-cas-online/source/out/arch/arm64/boot/Image
